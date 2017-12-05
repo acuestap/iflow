@@ -1,0 +1,43 @@
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-md-6">
+            <div ng-if="$even" ng-repeat="screen in screensBranch" class="card">
+                <div class="card-header">
+                    <i class="fa fa-tv bg-info p-3 font-2xl mr-3 float-left"></i>
+                    <div class="h5 text-capitalize mb-0 mt-2">{{screen["M"].name["S"]}}</div>
+                    <div class="card-footer px-3 py-2">
+                        <a class="font-weight-bold font-xs btn-block text-editor-editable" ui-sref-active="active" ui-sref="app.screen({branchId: branchId,screenId: screen['M'].id['N']})">Ver detalle <i class="fa fa-angle-right float-right font-lg"></i></a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card-header text-center">
+                        <label><li class="fa fa-link bg-light p-3 font-size-1"></li></label>
+                        <a target="_blank" href="/#!/screen/{{screen['M'].url['S']}}"><strong>http://iflow.mobi/screen/{{screen['M'].url['S']}}</strong></a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--/.col-->
+        <div class="col-md-6">
+            <div ng-if="$odd" ng-repeat="screen in screensBranch" class="card">
+                <div class="card-header">
+                    <i class="fa fa-tv bg-info p-3 font-2xl mr-3 float-left"></i>
+                    <div class="h5 text-capitalize mb-0 mt-2">{{screen["M"].name["S"]}}</div>
+                    <div class="card-footer px-3 py-2">
+                        <a class="font-weight-bold font-xs btn-block text-editor-editable" ui-sref-active="active" ui-sref="app.screen({branchId: branchId,screenId: screen['M'].id['N']})">Ver detalle <i class="fa fa-angle-right float-right font-lg"></i></a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    
+                    <div class="card-header text-center">
+                        <label><li class="fa fa-link bg-light p-3 font-size-1"></li></label>
+                        <a target="_blank" href="/#!/screen/{{screen['M'].url['S']}}"><strong>http://iflow.mobi/screen/{{screen['M'].url['S']}}</strong></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!--/.row-->
+</div>

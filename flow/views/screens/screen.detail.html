@@ -1,0 +1,197 @@
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <small>Personalización de la pantalla ubicada en:</small>
+                    <i class="fa fa-tv bg-info p-3 font-2xl mr-3 float-left"></i>
+                    <div class="h5 text-capitalize mb-0 mt-2">{{detailNameScreen}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-sm-12" id="accordion">
+                <div class="card">
+                    <div class="card-header">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1"> Imágenes disponibles </a>
+                        <span class="badge badge-pill badge-success float-right">{{contentImages.length}}</span>
+                        <div class="card-body pb-0">
+                            <div class="btn-group pull-right">
+                                <p>Para agregar imágenes arrastrelas desde la izquierda a la derecha</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div id="collapse1" class="card-body panel-collapse collapse in">
+                        <div id="div1">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="content" ng-if="$even" ng-repeat='item in contentImages'>
+
+                                        <img src="{{item.path['S']}}" ng-show="item.id['N']" data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone'}" ng-model="contentImages" jqyoui-draggable="{index: {{$index}},  placeholder: 'keep'}"  />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="content" ng-if="$odd" ng-repeat='item in contentImages'>
+                                        <img src="{{item.path['S']}}" ng-show="item.id['N']" data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone'}" ng-model="contentImages" jqyoui-draggable="{index: {{$index}}, placeholder: 'keep'}"  />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12"  id="accordion2">
+                <div class="card">
+                    <div class="card-header">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2"> Videos disponibles </a>
+                        <span class="badge badge-pill badge-success float-right">{{contentVideos.length}}</span>
+                        <div class="card-body pb-0">
+                            <div class="btn-group pull-right">
+                                <p>Para agregar videos arrastrelas desde la izquierda a la derecha</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="collapse2" class="card-body panel-collapse collapse in">
+                        <div id="div2">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div  ng-if="$even" ng-repeat='item in contentVideos'>
+                                        <video class="contentVideos" ng-show="item.id['N']" data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone'}" ng-model="contentVideos" jqyoui-draggable="{index: {{$index}}, placeholder: 'keep'}" controls width="100%" poster="{{item.poster['S']}}">
+                                            <source src="{{item.path['S']}}" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video> 
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div ng-if="$odd" ng-repeat='item in contentVideos'>
+                                        <video class="contentVideos" ng-show="item.id['N']" data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone'}" ng-model="contentVideos" jqyoui-draggable="{index: {{$index}}, placeholder: 'keep'}" controls width="100%" poster="{{item.poster['S']}}">
+                                            <source src="{{item.path['S']}}" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-sm-12" id="accordion3">
+                <div class="card">
+                    <div class="card-header">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3"> Promociones disponibles </a>
+                        <span class="badge badge-pill badge-success float-right">{{promotionsBranch.length}}</span>
+                        <div class="card-body pb-0">
+                            <div class="btn-group pull-right">
+                                <p>Active / Inactive las promociones para la pantalla.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="collapse3" class="card-body panel-collapse collapse in">
+                        <div id="div2">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="content" ng-if="$even" ng-repeat='item in promotionsBranch| filter: { active:{ "S":"1" }}'>
+                                        <p class="text-center font-sm">{{item.title["S"]}}</p>
+                                        <img src="{{item.image['S']}}" ng-show="item.id['N']" />
+                                        <div class="checkbox font-sm">
+                                            <label><input type="radio" name="optradio_{{item.id['N']}}" ng-checked="promoIsActive(item.id['N'])" ng-click="activarPromo(item.id['N'])"> Activo</label>
+                                            <label><input type="radio" name="optradio_{{item.id['N']}}" ng-checked="promoIsInactive(item.id['N'])" ng-click="inactivarPromo(item.id['N'])"> Inactivo</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="content" ng-if="$odd" ng-repeat='item in promotionsBranch| filter: { active: { "S":"1" } }'>
+                                        <p class="text-center font-sm">{{item.title["S"]}}</p>
+                                        <img src="{{item.image['S']}}" ng-show="item.id['N']" />
+                                        <div class="checkbox font-sm">
+                                            <label><input type="radio" name="optradio_{{item.id['N']}}" ng-checked="promoIsActive(item.id['N'])" ng-click="activarPromo(item.id['N'])"> Activo</label>
+                                            <label><input type="radio" name="optradio_{{item.id['N']}}" ng-checked="promoIsInactive(item.id['N'])" ng-click="inactivarPromo(item.id['N'])"> Inactivo</label>
+                                        </div>                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <center>
+                                <button type="button" class="btn btn-success" ng-click="updatePromotions()" ><i class="fa fa-save"></i> Actualizar</button>                    
+                            </center>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>    
+    </div>
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        Contenido asociado a la pantalla {{detailNameScreen}}
+                        <span class="badge badge-pill badge-info float-right">{{list4.length}}</span>
+                        <div class="card-body pb-0">
+                            <h4 class="mb-0">{{list4.length}}</h4>
+                            <p>contenido en esta pantalla</p>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <button type="button" class="btn btn-success" ng-click="saveContent()" ><i class="fa fa-save"></i> Guardar</button>
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteContentModal"><i class="fa fa-trash"></i> Borrar </button>                       
+                    </div>
+                    <div class="row paddingRow">
+                        <div class="col-md-12" >
+                            <div ng-mouseover="contentExist()" class="addContent"  data-drop="true">
+                                <div id="conBox" class="areaDrag" data-drop="true"  ng-model='list4' jqyoui-droppable="{multiple:true}">
+                                    <div ng-hide="hideMe()" class="areaDrop">Suelte aquí el contenido para asociar</div>
+                                    <div class="listContent">
+                                        <div   class="contentShow" ng-repeat="item in list4 track by $index">
+                                            <img  ng-if="item.type['S'] === 'img'"   src="{{item.path['S']}}" ng-show="item.id['N']" data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone'}" ng-model="list4" jqyoui-draggable="{index: {{$index}}}"  width="100%"  />
+
+
+                                            <video  ng-if="item.type['S'] === 'video'"  ng-show="item.id['N']" data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone'}" ng-model="list4" jqyoui-draggable="{index: {{$index}}}" controls width="100%" poster="{{item.poster['S']}}">
+                                                <source src="{{item.path['S']}}" type="video/mp4">
+                                                Your browser does not support the video tag.
+                                            </video> 
+
+                                            <!--                                            <div id="item{{$index}}"  >
+                                                                                            <span  class="pull-right btn btn-danger fa fa-trash trash" ng-click="removeItem(item, $event)" ></span>
+                                                                                        </div>-->
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="deleteContentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Contenido de pantallas</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ¿Esta seguro de borrar todo el contenido a esta pantalla?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                <button type="button" ng-click="deleteContent()"  class="btn btn-primary" data-dismiss="modal">Si</button>
+            </div>
+        </div>
+    </div>
+</div>

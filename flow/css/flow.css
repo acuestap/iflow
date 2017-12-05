@@ -1,0 +1,221 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 15/10/2017, 02:52:23 PM
+    Author     : Diego F. Ruiz S
+*/
+
+.content >img{
+    padding: 5px;
+    width: 100%;
+    border: 1px #63c2de solid;
+}
+
+.contentVideos{
+    white-space: pre;
+    padding: 5px;
+    border: 1px #63c2de solid;
+}
+.deleteContent{
+    border: 1px red solid;
+    padding: 5px;
+    width: 100%;
+    height: 100%;
+}
+.addContent{
+    border: 1px #4dbd74 solid;
+    padding: 5px;
+    width: 100%;
+    height: 300px;
+    overflow-y: hidden;
+}
+.listContent{
+    width: 100%;
+    height: 300px;/*100%;*/
+    overflow-y: scroll;
+
+}
+.contentShow{
+    position:relative;
+    padding: 7px;
+    width: 100%;
+    height: 100%;
+}
+.paddingRow{
+    padding: 10px;
+}
+
+.flow-thumb {
+    width: 24px;
+    height: 24px;
+    float: none;
+    position: relative;
+    top: 7px;
+}
+
+form .flow-progress {
+    line-height: 15px;
+}
+
+
+.flow-progress {
+    display: inline-block;
+    width: 100px;
+    border: 3px groove #CCC;
+}
+
+.flow-progress div {
+    font-size: smaller;
+    background: #3ea662;
+    width: 0;
+}
+
+
+.container.gallery-container {
+    background-color: #fff;
+    color: #35373a;
+    min-height: 100vh;
+    border-radius: 20px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.06);
+}
+
+.gallery-container h1 {
+    text-align: center;
+    margin-top: 70px;
+    font-family: 'Droid Sans', sans-serif;
+    font-weight: bold;
+}
+
+.gallery-container p.page-description {
+    text-align: center;
+    max-width: 800px;
+    margin: 25px auto;
+    color: #888;
+    font-size: 18px;
+}
+
+.tz-gallery {
+    padding: 40px;
+}
+
+.tz-gallery .lightbox img {
+    width: 100%;
+    margin-bottom: 30px;
+    transition: 0.2s ease-in-out;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.2);
+}
+
+
+.tz-gallery .lightbox img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+}
+
+.tz-gallery img {
+    border-radius: 4px;
+}
+
+.baguetteBox-button {
+    background-color: transparent !important;
+}
+
+.trash{
+    position: absolute;
+    transform :translate(350px,-220px);
+    z-index: 5;
+}
+.areaDrag{
+    height: 100%;
+    width: 100%;
+}
+.areaDrop{
+    height: 10%;
+    width: 100%;
+    padding-left: 7px;
+}
+
+.fullscreen-bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -100;
+}
+
+.fullscreen-bg__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-left: 5%;
+    width: 100%;
+    height: 100%;
+}
+
+#title-QR{
+    padding: 5%;
+}
+/*@media (min-aspect-ratio: 16/9) {
+    .fullscreen-bg__video {
+        width: auto;
+        height: 100%;
+    }
+}
+
+@media (max-aspect-ratio: 16/9) {
+    .fullscreen-bg__video {
+        width: auto;
+        height: 100%;
+    }
+}
+/*
+@media (min-aspect-ratio: 16/9) {
+    .fullscreen-bg__video {
+        height: 300%;
+        top: -100%;
+    }
+}
+
+@media (max-aspect-ratio: 16/9) {
+    .fullscreen-bg__video {
+        width: 300%;
+        left: -100%;
+    }
+}
+*/
+.uploadButton{
+    padding: 0.43rem 1.5rem;
+}
+
+.fullscreen {
+    width: 100%;
+    height: 100%;
+}
+
+.promotion{
+    -moz-border-radius-bottomright: 10px; 
+    -moz-border-radius-topright: 10px; 
+    background-color: CornflowerBlue; 
+    bottom: 0px; 
+    color: #FFF; 
+    margin: 0; 
+    opacity: 1.4; 
+    filter:alpha(opacity=40); 
+    padding: 5% 5% 5% 5%;
+    position: absolute; 
+    width: auto;
+}
+
+.login-html {
+/*  background: url("https://tabletzona.es/app/uploads/2016/04/Wallpaper-seleccion-tabletzona-1.jpg") no-repeat center fixed;*/
+  background: url("http://www.zews.co.cr/wp-content/uploads/2014/10/cpic.png") no-repeat center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+

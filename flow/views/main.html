@@ -1,0 +1,33 @@
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header h5 text-capitalize mb-0 mt-2">
+                    Sedes disponibles 
+                </div>
+                <div class="card-body">
+                    <div class="row" ng-controller="loadBranchesCtrl">
+                        <div ng-repeat="branch in branches" class="col-sm-6 col-lg-6">
+                            <div class="card-header">
+                                <i class="fa fa-building bg-info p-3 font-2xl mr-3 float-left"></i>
+                                <div class="h5 text-capitalize mb-0 mt-2">{{branch.name["S"]}}</div>
+                                <div class="card-footer px-3 py-2">
+                                    <a class="font-weight-bold font-xs btn-block text-capitalize" ui-sref-active="active" ui-sref="app.branches({branchId: branch.id['N']})">Ver pantallas <i class="fa fa-angle-right float-right font-lg"></i></a>
+                                </div>
+                            </div>
+                            <div class="card-header">
+                                <i class="fa fa-tv bg-info p-3 font-2xl mr-3 float-left text-white bg-info"></i>
+                                <div class="h5 text-capitalize mb-0 mt-2">{{branch.screens["L"].length}} Pantallas</div>
+                                <div class="card-footer px-3 py-2">
+                                <p class="font-weight-bold font-xs btn-block text-capitalize" ui-sref-active="active">
+                                    {{contentPromotions.length}} promociones disponibles</p>
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/.col-->
+</div>
+<!--/.row-->

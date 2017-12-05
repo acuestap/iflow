@@ -1,0 +1,56 @@
+<div class="animated fadeIn">
+    <div class="card card-default">
+        <div class="card-header">
+            <i class="fa fa-picture-o"></i>Cargar video
+        </div>
+        <div class="card-body">
+            
+            <input type = "file" file-model="myFile"   class="btn btn-info btn-sm"/>
+            <button type="button" class="btn btn-success uploadButton" ng-click = "uploadVideo()">Subir</button>
+           
+        </div>
+        <div class="card-body">
+            <div ng-if="uploadFileTrue" id="bar-file" class="col-12">
+                <span class="progress" ng-show="uploadProgress >= 0">
+                    <div class="progress-bar progress-bar-striped" role="progressbar" style="width:{{uploadProgress}}%"  
+                         ng-bind="uploadProgress + '% ' + msg"></div>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="animated fadeIn">
+    <div class="card card-default">
+        <div class="card-header">
+            <i class="fa fa-picture-o"></i> Videos cargados
+        </div>
+        <div class="card-body">
+            <div class="card">
+                <div id="collapse1">
+                    <div id="div1" class="tz-gallery">
+                        <div class="row">
+                            <div class="baguetteBoxOne col-sm-6 col-md-4" ng-if="$even" ng-repeat='item in contentVideos'>
+                                <button type="button" class="pull-right btn btn-danger" style="padding: 1px;" ng-click="deleteVideo(item.name['S'])"><i class="fa fa-trash"></i></button>                       
+                                <a class="lightbox" href="{{item.path['S']}}">
+                                <video ng-if="item.type['S'] === 'video'" ng-show="item.id['N']" controls width="100%" poster="{{item.poster['S']}}">
+                                    <source src="{{item.path['S']}}" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                </a>
+                            </div>
+                            <div class="baguetteBoxOne col-sm-6 col-md-4" ng-if="$odd" ng-repeat='item in contentVideos'>
+                                <button type="button" class="pull-right btn btn-danger" style="padding: 1px;" ng-click="deleteVideo(item.name['S'])"><i class="fa fa-trash"></i></button>                       
+                                <a class="lightbox" href="{{item.path['S']}}">
+                                <video ng-if="item.type['S'] === 'video'" ng-show="item.id['N']" controls width="100%" poster="{{item.poster['S']}}">
+                                    <source src="{{item.path['S']}}" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
